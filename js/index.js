@@ -3,13 +3,17 @@ The DOMContentLoaded event fires when the initial HTML document has been complet
 and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 */
 document.addEventListener("DOMContentLoaded", function(event) {
-    const timelineContainer = document.querySelector('#experience > .timeline');
-	console.log(timelineContainer);
-
+  const timelineContainer = document.querySelector('#experience > .timeline');
 	PROFILE.timeline.forEach(timeline => {
 		const timelineElem = createTimeline(timeline);
 		timelineContainer.appendChild(timelineElem);	
-	})
+  })
+
+  const skillsBody = document.querySelector('#skills > .skills-body');
+  Object.keys(SKILLS).forEach(skillType => {
+    const skillsPerType = SKILLS[skillType];
+    skillsBody.appendChild(createSkillTypeContainer(skillType, skillsPerType));
+  })
 });
 
 function createTimeline(timeline) {
@@ -25,7 +29,8 @@ function createTimeline(timeline) {
 	timelineContentsElem.appendChild(createTimelineOrgElems(timeline.organization));
 	timeline.projects.forEach(project => {
 		timelineContentsElem.appendChild(createOrgProjectElems(project));
-	});
+  });
+  timelineContentsElem.id = timeline.organization.id;
 	timelineElem.appendChild(timelineDateElem);
 	timelineElem.appendChild(timelineContentsElem);
 
@@ -46,8 +51,9 @@ function createTimelineDataElem(date) {
 }
 
 function createTimelineOrgElems(organization) {
-	const organizationDetailElem = document.createElement('div');
+  const organizationDetailElem = document.createElement('div');
   organizationDetailElem.className = 'organization-detail';
+  organizationDetailElem.addEventListener('click', toggleOrganizationDetail.bind(null, organization.id), false);
 
   const organizationLogoElem = document.createElement('img');
   organizationLogoElem.className = 'organization-logo';
@@ -59,9 +65,11 @@ function createTimelineOrgElems(organization) {
   organizationTitleElem.classList.add('title');
   const orgRoleElem = document.createElement('span');
   orgRoleElem.innerText = organization.role;
-  const orgNameElem = document.createElement('span');
+  const orgNameElem = document.createElement('a');
   orgNameElem.innerText = ' @ ' + organization.title;
   orgNameElem.className = 'highlight-text';
+  orgNameElem.href = organization.website;
+  orgNameElem.target = "_blank";
   organizationTitleElem.appendChild(orgRoleElem);
   organizationTitleElem.appendChild(orgNameElem);
 	organizationDetailElem.appendChild(organizationTitleElem);
@@ -71,7 +79,8 @@ function createTimelineOrgElems(organization) {
 function createOrgProjectElems(project) {
   const PROJECT_TECH_HEADING = 'TECH STACK';
 	const projectDetailElem = document.createElement('div');
-	projectDetailElem.className = 'project-detail';
+  projectDetailElem.className = 'project-detail';
+  projectDetailElem.classList.add('hide');
 	
 	const projectTitleElem = document.createElement('div');
 	projectTitleElem.className = 'project-title';
@@ -102,4 +111,47 @@ function createOrgProjectElems(project) {
 	projectDetailElem.appendChild(projectDescriptionElem);
 	projectDetailElem.appendChild(projectTechnologiesElem);
 	return projectDetailElem;
+}
+
+function createSkillTypeContainer(skillType, skillsPerType) {
+  const skillTypeHeadingElem = document.createElement('h2');
+  skillTypeHeadingElem.innerText = skillType;
+  const skillTypeContainer = document.createElement('div');
+  skillTypeContainer.className = 'container';
+
+  skillsPerType.forEach(skill => {
+    const skillImageElem = document.createElement('img');
+    skillImageElem.src = './assets/img/' + skill.image;
+    skillImageElem.alt = skill.name;
+    const skillText = document.createElement('p');
+    skillText.innerText = skill.name;
+
+    const skillWrapperElem = document.createElement('a');
+    skillWrapperElem.className = 'skill-wrapper';
+    skillWrapperElem.href = skill.website;
+    skillWrapperElem.target = "_blank";
+    skillWrapperElem.appendChild(skillImageElem);
+    skillWrapperElem.appendChild(skillText);
+
+
+    skillTypeContainer.appendChild(skillWrapperElem);
+  })
+  const skillTypeBody = document.createElement('div');
+  skillTypeBody.className = 'skills-type';
+  skillTypeBody.appendChild(skillTypeHeadingElem);
+  skillTypeBody.appendChild(skillTypeContainer);
+  return skillTypeBody;
+}
+
+function toggleOrganizationDetail(orgId) {
+  const projectDetailElems = document.querySelectorAll('#' + orgId + ' > .project-detail');
+  projectDetailElems.forEach(projectDetailElem => {
+    if(projectDetailElem.classList.contains('show')) {
+      projectDetailElem.classList.add('hide');
+      projectDetailElem.classList.remove('show');
+    } else if(projectDetailElem.classList.contains('hide')) {
+      projectDetailElem.classList.add('show');
+      projectDetailElem.classList.remove('hide');
+    }
+  })
 }

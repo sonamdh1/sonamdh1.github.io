@@ -3,10 +3,12 @@ const PROFILE = {
 	timeline: [
 		{
 			organization: {
+        id: 'cloudera',
 				title: 'Cloudera',
 				description: `Working as a full-stack developer - developing the UI and adding middleware support for Cloudera's Data Catalog. Data Catalog is a service within Cloudera Data Platform that enables you to understand, manage, secure, and govern data assets across the enterprise. Data Catalog helps you understand data across multiple clusters and across multiple CDP environments.`,
 				role: 'Senior Software Engineer',
-				logo: 'cloudera.png'
+        logo: 'cloudera.png',
+        website: 'https://www.cloudera.com'
 			},
 			date: {
 				started_at: 'Dec 2020',
@@ -26,10 +28,12 @@ const PROFILE = {
 		},
 		{
 			organization: {
+        id: 'qubole',
 				title: 'Qubole',
 				description: '',
 				role: 'Member of Technical Staff II',
-				logo: 'qubole.png'
+        logo: 'qubole.png',
+        website: 'https://www.qubole.com'
 			},
 			date: {
 				started_at: 'Sept 2019',
@@ -67,10 +71,12 @@ const PROFILE = {
 		},
 		{
 			organization: {
+        id: 'streamoid1',
 				title: 'Streamoid Technologies',
 				description: '',
 				role: 'Member of Technical Staff',
-				logo: 'streamoid.png'
+        logo: 'streamoid.png',
+        website: 'https://www.streamoid.com'
 			},
 			date: {
 				started_at: 'July 2017',
@@ -136,10 +142,12 @@ const PROFILE = {
 		},
 		{
 			organization: {
+        id: 'streamoid2',
 				title: 'Streamoid Technologies',
 				description: '',
 				role: 'Intern',
-				logo: 'streamoid.png'
+        logo: 'streamoid.png',
+        website: 'https://www.streamoid.com'
 			},
 			date: {
 				started_at: 'July 2017',
@@ -157,10 +165,12 @@ const PROFILE = {
 		},
 		{
 			organization: {
+        id: 'mnnit',
 				title: 'National Institute of Technology, Allahabad',
 				description: '9.14 CGPA',
 				role: 'Master of Computer Application',
-				logo: 'mnnit.png'
+        logo: 'mnnit.png',
+        website: 'http://www.mnnit.ac.in'
 			},
 			date: {
 				started_at: 'July 2014',
@@ -175,18 +185,20 @@ const PROFILE = {
 				{
 					title: 'Movie Recommendation System',
 					description: `Developed a recommendation service GUI application which suggested movies to the users based on their ratings provided for various movies they have watched.
-					- Developed the GUI using the graphics classes provided in JDK.
-					- The recommendation was done using the Apache Mahout open-source framework with the Log-Likelihood Ratio Similarity algorithm.`,
+            - Developed the GUI using the graphics classes provided in JDK.
+            - The recommendation was done using the Apache Mahout open-source framework with the Log-Likelihood Ratio Similarity algorithm.`,
 					technologies: 'Java'
 				}
 			]
 		},
 		{
 			organization: {
+        id: 'sggscc',
 				title: 'University of Delhi, Delhi',
 				description: '',
 				role: 'B.Sc. (Hons.) Computer Science',
-				logo: 'DU.png'
+        logo: 'DU.png',
+        website: 'http://cs.du.ac.in'
 			},
 			date: {
 				started_at: 'July 2011',
@@ -196,4 +208,43 @@ const PROFILE = {
 			]
 		}
 	]
+}
+
+const SKILLS = {
+  frontend: [
+    {name: 'Javascript',image: 'javascript.svg',website: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'},
+    {name: 'ES6',image: 'es6.svg', website: 'http://es6-features.org'},
+    {name: 'Typescript',image: 'typescript.svg', website: 'https://www.typescriptlang.org'},
+    {name: 'React',image: 'react.svg', website: 'https://reactjs.org'},
+    {name: 'Redux',image: 'redux.svg', website: 'https://redux.js.org'},
+    {name: 'Angular',image: 'angular.svg', website: 'https://angular.io'},
+    {name: 'Ember',image: 'ember.svg', website: 'https://emberjs.com'},
+    {name: 'JQuery',image: 'jquery.svg', website: 'https://jquery.com'},
+    {name: 'HTML5',image: 'html.svg', website: 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5'},
+    {name: 'CSS3',image: 'css.svg', website: 'https://www.css3.info'},
+    {name: 'SASS',image: 'sass.svg', website: 'https://sass-lang.com'},
+    {name: 'Bootstrap',image: 'bootstrap.svg', website: 'https://getbootstrap.com/docs/5.1/getting-started/introduction/'},
+    {name: 'Materialize',image: 'materialize.svg', website: 'https://materializecss.com'},
+    {name: 'Babel',image: 'babel.svg',website: 'https://babeljs.io'},
+  ],
+  backend: [
+    {name: 'Node',image: 'nodejs.svg', website: 'https://nodejs.org/en/about/'},
+    {name: 'Python',image: 'python.svg', website: 'https://docs.python.org/3/using/index.html'},
+    {name: 'PHP',image: 'php.svg', website: 'https://www.php.net'},
+    {name: 'Mongo DB',image: 'mongodb.png', website: 'https://www.mongodb.com'},
+    {name: 'MySQL',image: 'mysql.svg', website: 'https://dev.mysql.com/doc/'},
+    {name: 'PostgreSQL',image: 'postgres.svg', website: 'https://www.postgresql.org/docs/'},
+    {name: 'Elastic Search',image: 'elasticsearch.png', website: 'https://www.elastic.co/guide/en/welcome-to-elastic/current/welcome-to-elastic.html'},
+    {name: 'Redis',image: 'redis.svg', website: 'https://redis.io/topics/introduction'},
+    {name: 'Rest API',image: 'api.svg', website: 'https://restfulapi.net'},
+  ],
+  Others: [
+    {name: 'Nginx',image: 'nginx.png', website: 'https://www.nginx.com'},
+    {name: 'Docker',image: 'docker.png', website: 'https://docs.docker.com'},
+    {name: 'Kubernetes',image: 'kubernetes.svg', website: 'https://kubernetes.io/docs/home/'},
+    {name: 'AWS',image: 'aws.svg', website: 'https://aws.amazon.com'},
+    {name: 'Git',image: 'git.svg', website: 'https://git-scm.com/doc'},
+    {name: 'Bitbucket',image: 'bitbucket.svg', website: 'https://bitbucket.org/product/guides/getting-started/overview'},
+    {name: 'VS Code',image: 'vscode.svg', website: 'https://code.visualstudio.com'},
+  ]
 }

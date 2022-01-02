@@ -51,11 +51,16 @@
 	padding-top: 0px;
 }
 .timeline-element:not(:first-child) > .timeline-element-contents {
-	border-top: 1px solid #ddd;
+	/* border-top: 1px solid #ddd; */
 }
 .timeline-element-contents > .organization-detail {
   margin-bottom: 10px;
   display: flex;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #F7F7FF;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 .organization-detail > .organization-logo {
   height: 30px;
@@ -66,6 +71,12 @@
 }
 .organization-detail > .organization-title {
   font-size: 22px;
+}
+.timeline-element-contents > .project-detail.show {
+  display: inline-block;
+}
+.timeline-element-contents > .project-detail.hide {
+  display: none;
 }
 .timeline-element-contents > .project-detail + .project-detail {
   margin-top: 30px;
