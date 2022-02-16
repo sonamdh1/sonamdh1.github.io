@@ -1,3 +1,9 @@
 .DS_Store
 package-lock.json
 node_modules
+
+**/js/data.js
+**/js/index.js
+**/css/style.css
+**/css/skills.css
+**/css/experience.css
